@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { CustomButton } from "remoteApp/CustomButton";
-import { CustomCard } from "remoteApp/CustomCard";
+import { CustomButton } from "shadCN/CustomButton";
+import { CustomCard } from "shadCN/CustomCard";
 import { Button } from "@/components/ui/button";
+import Hero from "prime/Hero";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,9 @@ function App() {
       </div>
       <div className={debugClass}>
         <CustomCard />
+      </div>
+      <div className={debugClass}>
+        <Hero />
       </div>
     </div>
   );

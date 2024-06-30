@@ -8,12 +8,11 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "remote_components",
+      name: "prime",
       filename: "remoteEntry.js",
       // Modules to expose
       exposes: {
-        "./CustomButton": "./src/components/CustomButton",
-        "./CustomCard": "./src/components/CustomCard",
+        "./Hero": "./src/components/Hero",
       },
       shared: ["react", "react-dom"],
     }),

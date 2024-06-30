@@ -1,2 +1,3 @@
-declare module "remoteApp/CustomButton";
-declare module "remoteApp/CustomCard";
+declare module "shadCN/CustomButton";
+declare module "shadCN/CustomCard";
+declare module "prime/Hero";
