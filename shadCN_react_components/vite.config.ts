@@ -14,6 +14,7 @@ export default defineConfig({
       exposes: {
         "./CustomButton": "./src/components/CustomButton",
         "./CustomCard": "./src/components/CustomCard",
+        "./Info": "./src/lib/info",
       },
       shared: ["react", "react-dom"],
     }),
