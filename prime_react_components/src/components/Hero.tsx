@@ -86,7 +86,7 @@ export default function BasicDemo() {
   };
 
   return (
-    <div className="card">
+    <div>
       <DataView value={products} listTemplate={listTemplate} />
     </div>
   );
