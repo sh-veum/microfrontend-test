@@ -13,6 +13,7 @@ export default defineConfig({
       // Modules to expose
       exposes: {
         "./Hero": "./src/components/Hero",
+        "./Info": "./src/lib/info",
       },
       shared: ["react", "react-dom"],
     }),

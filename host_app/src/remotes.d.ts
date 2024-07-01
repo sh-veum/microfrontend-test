@@ -6,3 +6,4 @@ declare module "shadCN/Footer";
 
 // Prime
 declare module "prime/Hero";
+declare module "prime/Info";

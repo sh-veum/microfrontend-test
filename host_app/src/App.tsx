@@ -1,45 +1,50 @@
 import { useState } from "react";
-import { CustomButton } from "shadCN/CustomButton";
-import { CustomCard } from "shadCN/CustomCard";
 import { Button } from "@/components/ui/button";
 import Hero from "prime/Hero";
-import { Info } from "shadCN/Info";
-import { Info as InfoType } from "@/models/Info";
 import { Footer } from "shadCN/Footer";
+import { Info as ShadInfo } from "shadCN/Info";
+import { Info as PrimeInfo } from "prime/Info";
+import FloatLabel from "./components/FloatLabel";
+
+export interface Info {
+  framework: string;
+  name: string;
+  port: string;
+}
 
 function App() {
-  const [count, setCount] = useState(0);
   const [debug, setDebug] = useState(false);
 
-  const debugClass = debug ? "outline outline-2 outline-red-500" : "";
+  const primeDebugClass = debug ? "outline outline-2 outline-red-500" : "";
+  const shadDebugClass = debug ? "outline outline-2 outline-green-500" : "";
 
-  const info = Info as InfoType;
+  const shadInfo: Info = ShadInfo;
+  const primeInfo: Info = PrimeInfo;
 
   return (
     <>
-      <div>
-        <h1>Host App</h1>
-        <Button onClick={() => setDebug((debug) => !debug)}>
-          Toggle Debug
-        </Button>
-        <div>
-          <CustomButton />
-          <Button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </Button>
+      <div className="space-y-4">
+        <h1 className="text-4xl font-bold">Host App</h1>
+        <Button onClick={() => setDebug(!debug)}>Toggle Debug</Button>
+        <div className="relative">
+          <div className={primeDebugClass}>
+            <FloatLabel
+              label={`${primeInfo.port} - ${primeInfo.name}`}
+              isVisible={debug}
+            >
+              <Hero />
+            </FloatLabel>
+          </div>
         </div>
-        <p>{info.framework}</p>
-        <p>{info.name}</p>
-        <p>{info.port}</p>
-        <div className={debugClass}>
-          <CustomCard />
+
+        <div className={shadDebugClass}>
+          <FloatLabel
+            label={`${shadInfo.port} - ${shadInfo.name}`}
+            isVisible={debug}
+          >
+            <Footer />
+          </FloatLabel>
         </div>
-        <div className={debugClass}>
-          <Hero />
-        </div>
-      </div>
-      <div className={debugClass}>
-        <Footer />
       </div>
     </>
   );
