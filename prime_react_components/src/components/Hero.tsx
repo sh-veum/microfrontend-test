@@ -6,8 +6,12 @@ import { Tag } from "primereact/tag";
 import { classNames } from "primereact/utils";
 import { ProductService } from "@/services/ProductService";
 import { Product } from "@/models/Product";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+// import "primereact/resources/primereact.css";
+import "../index.css";
 
-export default function BasicDemo() {
+export default function Hero() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {

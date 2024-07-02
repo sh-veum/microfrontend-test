@@ -8,17 +8,21 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Button } from "./ui/button";
+import { buttonVariants } from "./ui/button";
+// import { Button } from "./ui/button";
 
-export const Footer = () => {
+export default function Footer() {
+  const buttonClass = buttonVariants({
+    variant: "default",
+    size: "default",
+  });
+
   return (
-    <footer className="flex items-center justify-center py-8 bg-primary text-white">
+    <footer className="flex items-center justify-center py-8 bg-primary text-white dark:bg-black">
       <div className="text-center space-y-4">
         <p>A footer from a remote react application</p>
         <Drawer>
-          <DrawerTrigger>
-            <Button className="font-bold">Open Drawer</Button>
-          </DrawerTrigger>
+          <DrawerTrigger className={buttonClass}>Open Drawer</DrawerTrigger>
           <DrawerContent>
             <DrawerHeader>
               <DrawerTitle>This does nothing</DrawerTitle>
@@ -27,15 +31,11 @@ export const Footer = () => {
               </DrawerDescription>
             </DrawerHeader>
             <DrawerFooter>
-              <DrawerClose>
-                <Button variant="outline" className="border-primary">
-                  Close Drawer
-                </Button>
-              </DrawerClose>
+              <DrawerClose className={buttonClass}>Close Drawer</DrawerClose>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
       </div>
     </footer>
   );
-};
+}
