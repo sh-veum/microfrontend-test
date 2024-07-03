@@ -6,7 +6,7 @@ import sys
 # Define the folder structure and start commands
 projects = {
     "host_app": "npm run dev",
-    "node_backend": "npm run dev",
+    # "node_backend": "npm run dev",
     "prime_react_components": "npm run serve",
     "shadCN_react_components": "npm run serve",
     "shadCN_react_components_2": "npm run serve"
