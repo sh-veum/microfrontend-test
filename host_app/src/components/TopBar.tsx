@@ -13,7 +13,7 @@ export const TopBar = () => {
   const debug = useDebugStore((state) => state.debug);
 
   return (
-    <div className="flex justify-between mx-4 my-2">
+    <div className="flex flex-wrap justify-between mx-4 my-2">
       <div className="flex">
         <p className="text-3xl">Microfrontend Test Site</p>
         {/* Show a global spinner when the router is transitioning */}
@@ -21,7 +21,7 @@ export const TopBar = () => {
           <RouterSpinner />
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center mt-2 sm:mt-0">
         <p
           className={`mr-4 font-bold ${debug ? "text-green-500" : "text-red-500"}`}
         >

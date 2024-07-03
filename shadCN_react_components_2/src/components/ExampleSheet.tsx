@@ -16,7 +16,7 @@ type ExampleSheet = (typeof SHEET_SIDES)[number];
 
 export function ExampleSheet() {
   return (
-    <div className="grid grid-cols-2 gap-2">
+    <div className="grid grid-cols-2 gap-2 min-h-fit min-w-fit p-4">
       {SHEET_SIDES.map((side) => (
         <Sheet key={side}>
           <SheetTrigger asChild>
