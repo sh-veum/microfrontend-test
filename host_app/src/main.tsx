@@ -12,11 +12,7 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <RouterProvider
-        router={router}
-        defaultPreload="intent"
-        // context={{ auth }}
-      />
+      <RouterProvider router={router} defaultPreload="intent" />
     </StrictMode>
   );
 }

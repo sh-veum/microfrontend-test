@@ -5,18 +5,18 @@ import { Info } from "@/models/Info";
 import { Spinner } from "./Spinner";
 import { useDebugStore } from "@/stores/useDebugStore";
 
-const LazyHero = lazy(() => import("prime/Hero"));
+const LazyDashboard = lazy(() => import("shadCN2/Dashboard"));
 
-export const Hero = () => {
+export const Dashboard = () => {
   const debug = useDebugStore((state) => state.debug);
-  const [primeInfo, setPrimeInfo] = useState<Info | null>(null);
-  const primeDebugClass = debug ? "border border-2 border-red-500" : "";
+  const [remoteInfo, setRemoteInfo] = useState<Info | null>(null);
+  const primeDebugClass = debug ? "outline outline-pink-600" : "";
 
   useEffect(() => {
     const loadPrimeInfo = async () => {
       try {
-        const infoModule = await import("prime/Info");
-        setPrimeInfo(infoModule.default as Info);
+        const infoModule = await import("shadCN2/Info");
+        setRemoteInfo(infoModule.default as Info);
       } catch (error) {
         console.error("Failed to load prime Info:", error);
       }
@@ -29,7 +29,7 @@ export const Hero = () => {
       <ErrorBoundary
         fallback={(error) => (
           <div className="p-2 bg-destructive font-bold">
-            ERROR: Hero failed to load
+            ERROR: Dashboard failed to load
             <pre>{error.message}</pre>
           </div>
         )}
@@ -37,20 +37,20 @@ export const Hero = () => {
         <Suspense
           fallback={
             <div>
-              <Spinner /> Loading hero...
+              <Spinner /> Loading Dashboard...
             </div>
           }
         >
           <div className={primeDebugClass}>
             <FloatLabel
               label={
-                primeInfo
-                  ? `${primeInfo.port} - ${primeInfo.name}`
+                remoteInfo
+                  ? `${remoteInfo.port} - ${remoteInfo.name}`
                   : "Loading..."
               }
               isVisible={debug}
             >
-              <LazyHero />
+              <LazyDashboard />
             </FloatLabel>
           </div>
         </Suspense>

@@ -6,7 +6,8 @@ projects = {
     "host_app": "npm run dev",
     "node_backend": "npm run dev",
     "prime_react_components": "npm run serve",
-    "shadCN_react_components": "npm run serve"
+    "shadCN_react_components": "npm run serve",
+    "shadCN_react_components_2": "npm run serve"
 }
 
 # Function to create directories

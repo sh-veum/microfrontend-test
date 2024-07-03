@@ -8,12 +8,12 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "prime",
+      name: "shadCN_react_components_2",
       filename: "remoteEntry.js",
       // Modules to expose
       exposes: {
-        "./Products": "./src/components/Products",
         "./Info": "./src/lib/info",
+        "./Dashboard": "./src/components/Dashboard",
       },
       shared: ["react", "react-dom"],
     }),
@@ -30,11 +30,11 @@ export default defineConfig({
     cssCodeSplit: false,
   },
   server: {
-    port: parseInt(process.env.VITE_PORT || "5003", 10),
+    port: parseInt(process.env.VITE_PORT || "5002", 10),
     strictPort: true,
   },
   preview: {
-    port: parseInt(process.env.VITE_PORT || "5003", 10),
+    port: parseInt(process.env.VITE_PORT || "5002", 10),
     strictPort: true,
   },
 });

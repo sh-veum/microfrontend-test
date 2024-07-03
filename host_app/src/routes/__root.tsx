@@ -5,11 +5,9 @@ import { Separator } from "@/components/ui/separator";
 import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Suspense } from "react";
-// import { Footer } from "shadCN/Footer";
 
 export const Route = createRootRouteWithContext<{
   auth: null;
-  // queryClient: QueryClient;
 }>()({
   component: RootComponent,
 });
@@ -18,23 +16,30 @@ function RootComponent() {
   return (
     <>
       <div className="min-h-screen flex flex-col">
-        <NavBar />
-        <Separator className="my-2" />
-        <div className="flex flex-col lg:flex-row flex-1">
-          <div className="lg:w-[5vw] min-w-fit">
+        <div>
+          <NavBar />
+          <div className="py-2">
+            <Separator />
+          </div>
+        </div>
+        <div className="flex flex-grow max-lg:flex-col lg:flex-row">
+          <div className="flex items-start h-full w-min">
             <SideBar />
           </div>
-          <Separator className="lg:hidden my-2" orientation="horizontal" />
-          <div className="flex w-screen lg:w-[90vw]">
-            <Separator
-              className="hidden lg:block mx-2"
-              orientation="vertical"
-            />
+          <div className="px-2 h-full max-lg:hidden">
+            <Separator orientation="vertical" />
+          </div>
+          <div className="py-2 w-full lg:hidden">
+            <Separator orientation="horizontal" />
+          </div>
+          <div className="flex-grow p-2 overflow-y-auto">
             <Outlet />
           </div>
         </div>
+        <div className="flex-shrink-0">
+          <Footer />
+        </div>
       </div>
-      <Footer />
       <Suspense>
         <TanStackRouterDevtools position="bottom-right" />
       </Suspense>

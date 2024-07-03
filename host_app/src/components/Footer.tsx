@@ -9,14 +9,14 @@ const LazyFooter = lazy(() => import("shadCN/Footer"));
 
 export const Footer = () => {
   const debug = useDebugStore((state) => state.debug);
-  const [shadInfo, setShadInfo] = useState<Info | null>(null);
-  const shadDebugClass = debug ? "border border-2 border-green-500" : "";
+  const [remoteInfo, setRemoteInfo] = useState<Info | null>(null);
+  const shadDebugClass = debug ? "outline outline-orange-600" : "";
 
   useEffect(() => {
     const loadShadInfo = async () => {
       try {
         const infoModule = await import("shadCN/Info");
-        setShadInfo(infoModule.default as Info);
+        setRemoteInfo(infoModule.default as Info);
       } catch (error) {
         console.error("Failed to load shadCN Info:", error);
       }
@@ -43,7 +43,9 @@ export const Footer = () => {
         <div className={shadDebugClass}>
           <FloatLabel
             label={
-              shadInfo ? `${shadInfo.port} - ${shadInfo.name}` : "Loading..."
+              remoteInfo
+                ? `${remoteInfo.port} - ${remoteInfo.name}`
+                : "Loading..."
             }
             isVisible={debug}
           >
