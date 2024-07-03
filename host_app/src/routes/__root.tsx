@@ -3,8 +3,8 @@ import { TopBar } from "@/components/TopBar";
 import { SideBar } from "@/components/SideBar";
 import { Separator } from "@/components/ui/separator";
 import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Suspense } from "react";
+import { TanStackRouterDevtools } from "@/components/RouterDevTools";
 
 export const Route = createRootRouteWithContext<{
   auth: null;
