@@ -1,5 +1,5 @@
 import { Footer } from "@/components/Footer";
-import { NavBar } from "@/components/NavBar";
+import { TopBar } from "@/components/TopBar";
 import { SideBar } from "@/components/SideBar";
 import { Separator } from "@/components/ui/separator";
 import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
@@ -17,7 +17,7 @@ function RootComponent() {
     <>
       <div className="min-h-screen flex flex-col">
         <div>
-          <NavBar />
+          <TopBar />
           <div className="py-2">
             <Separator />
           </div>

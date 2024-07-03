@@ -1,17 +1,34 @@
+import React from "react";
+
 interface FloatLabelProps {
   children: React.ReactNode;
-  label: string;
+  info: string;
   isVisible: boolean;
+  url?: string;
+  port?: string; // Optional port prop
 }
 
-const FloatLabel = ({ children, label, isVisible }: FloatLabelProps) => {
+const FloatLabel = ({
+  children,
+  info: label,
+  isVisible,
+  url,
+  port,
+}: FloatLabelProps) => {
+  const completeUrl = port ? `${url}:${port}` : url;
+
   return (
     <div className="relative">
       {children}
-      {isVisible && (
-        <label className="text-sm text-gray-600 px-1 absolute -top-2.5 left-2.5 bg-white">
-          {label}
-        </label>
+      {isVisible && completeUrl && (
+        <a
+          href={completeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-gray-600 px-1 absolute -top-2.5 left-2.5 bg-white hover:underline"
+        >
+          {completeUrl} - {label}
+        </a>
       )}
     </div>
   );

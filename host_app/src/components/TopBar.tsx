@@ -8,7 +8,7 @@ function RouterSpinner() {
   return <Spinner show={isLoading} />;
 }
 
-export const NavBar = () => {
+export const TopBar = () => {
   const toggleDebug = useDebugStore((state) => state.toggleDebug);
   const debug = useDebugStore((state) => state.debug);
 

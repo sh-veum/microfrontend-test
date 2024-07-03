@@ -43,12 +43,10 @@ export const Dashboard = () => {
         >
           <div className={primeDebugClass}>
             <FloatLabel
-              label={
-                remoteInfo
-                  ? `${remoteInfo.fullURL} - ${remoteInfo.name}`
-                  : "Loading..."
-              }
+              info={remoteInfo ? `${remoteInfo.name}` : "Loading..."}
               isVisible={debug}
+              url={remoteInfo?.url}
+              port={remoteInfo?.port}
             >
               <LazyDashboard />
             </FloatLabel>
