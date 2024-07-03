@@ -10,11 +10,12 @@ projects = {
     "shadCN_react_components_2": "npm run serve"
 }
 
-# Function to create directories
-def create_directories():
+
+# Function to install npm packages in each project directory
+def install_packages():
     for project in projects:
-        if not os.path.exists(project):
-            print(f"Directory for {project} doesn't exist")
+        print(f"Installing packages in {project}...")
+        subprocess.run("npm install", cwd=project, shell=True)
 
 # Function to start the projects
 def start_projects():
@@ -28,5 +29,5 @@ def start_projects():
         process.wait()
 
 if __name__ == "__main__":
-    create_directories()
+    install_packages()
     start_projects()
