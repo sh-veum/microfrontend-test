@@ -44,7 +44,7 @@ export const Footer = () => {
           <FloatLabel
             label={
               remoteInfo
-                ? `${remoteInfo.port} - ${remoteInfo.name}`
+                ? `${remoteInfo.fullURL} - ${remoteInfo.name}`
                 : "Loading..."
             }
             isVisible={debug}
