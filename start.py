@@ -1,5 +1,7 @@
 import os
 import subprocess
+import signal
+import sys
 
 # Define the folder structure and start commands
 projects = {
@@ -10,6 +12,7 @@ projects = {
     "shadCN_react_components_2": "npm run serve"
 }
 
+processes = []
 
 # Function to install npm packages in each project directory
 def install_packages():
@@ -19,7 +22,7 @@ def install_packages():
 
 # Function to start the projects
 def start_projects():
-    processes = []
+    global processes
     for project, command in projects.items():
         print(f"Starting project in {project} with command: {command}")
         process = subprocess.Popen(command, cwd=project, shell=True)
@@ -28,6 +31,14 @@ def start_projects():
     for process in processes:
         process.wait()
 
+# Signal handler for clean exit
+def signal_handler(sig, frame):
+    print('Exiting gracefully...')
+    for process in processes:
+        process.terminate()
+    sys.exit(0)
+
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, signal_handler)
     install_packages()
     start_projects()
