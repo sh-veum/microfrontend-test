@@ -6,10 +6,6 @@ import {
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 import { Spinner } from "@/components/Spinner";
-// import { QueryClient } from "@tanstack/react-query";
-
-// export const queryClient = new QueryClient();
-// setQueryClient(queryClient);
 
 export function createRouter() {
   return createTanstackRouter({
@@ -21,7 +17,6 @@ export function createRouter() {
     ),
     context: {
       auth: undefined!,
-      // queryClient,
     },
     defaultPreload: "intent",
     defaultPreloadStaleTime: 0,

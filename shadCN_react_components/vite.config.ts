@@ -8,13 +8,13 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "shadCN",
+      name: "shadCN_react_components_1",
       filename: "remoteEntry.js",
       // Modules to expose
       exposes: {
+        "./Info": "./src/lib/info",
         "./CustomButton": "./src/components/CustomButton",
         "./CustomCard": "./src/components/CustomCard",
-        "./Info": "./src/lib/info",
         "./Footer": "./src/components/Footer",
       },
       shared: ["react", "react-dom"],
@@ -30,5 +30,13 @@ export default defineConfig({
     target: "esnext",
     minify: false,
     cssCodeSplit: false,
+  },
+  server: {
+    port: parseInt(process.env.VITE_PORT || "5001", 10),
+    strictPort: true,
+  },
+  preview: {
+    port: parseInt(process.env.VITE_PORT || "5001", 10),
+    strictPort: true,
   },
 });

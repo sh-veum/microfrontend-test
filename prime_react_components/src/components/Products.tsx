@@ -1,3 +1,5 @@
+// Example component modified from https://primereact.org/dataview/
+
 import { useState, useEffect } from "react";
 import { Button } from "primereact/button";
 import { DataView } from "primereact/dataview";
@@ -6,12 +8,8 @@ import { Tag } from "primereact/tag";
 import { classNames } from "primereact/utils";
 import { ProductService } from "@/services/ProductService";
 import { Product } from "@/models/Product";
-import "primeicons/primeicons.css";
-import "primeflex/primeflex.css";
-// import "primereact/resources/primereact.css";
-import "../index.css";
 
-export default function Hero() {
+export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -90,7 +88,7 @@ export default function Hero() {
   };
 
   return (
-    <div>
+    <div className="h-screen w-full">
       <DataView value={products} listTemplate={listTemplate} />
     </div>
   );

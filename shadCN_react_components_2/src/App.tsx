@@ -1,9 +1,9 @@
-import Products from "@/components/Products";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
     <>
-      <Products />
+      <Dashboard />
     </>
   );
 }
