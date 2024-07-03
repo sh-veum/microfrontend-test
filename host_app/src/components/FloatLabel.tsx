@@ -5,7 +5,7 @@ interface FloatLabelProps {
   info: string;
   isVisible: boolean;
   url?: string;
-  port?: string; // Optional port prop
+  port?: string;
 }
 
 const FloatLabel = ({
@@ -15,7 +15,9 @@ const FloatLabel = ({
   url,
   port,
 }: FloatLabelProps) => {
-  const completeUrl = port ? `${url}:${port}` : url;
+  // Check if the URL contains "http://localhost" and add the port if it does
+  const completeUrl =
+    url?.includes("http://localhost") && port ? `${url}:${port}` : url;
 
   return (
     <div className="relative">
