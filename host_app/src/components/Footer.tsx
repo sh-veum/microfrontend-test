@@ -10,7 +10,7 @@ const LazyFooter = lazy(() => import("shadCN/Footer"));
 export const Footer = () => {
   const debug = useDebugStore((state) => state.debug);
   const [remoteInfo, setRemoteInfo] = useState<Info | null>(null);
-  const shadDebugClass = debug ? "outline outline-orange-600" : "";
+  const shadDebugClass = debug ? "border-4 border-orange-600" : "";
 
   useEffect(() => {
     const loadShadInfo = async () => {

@@ -10,7 +10,7 @@ const LazyDashboard = lazy(() => import("shadCN2/Dashboard"));
 export const Dashboard = () => {
   const debug = useDebugStore((state) => state.debug);
   const [remoteInfo, setRemoteInfo] = useState<Info | null>(null);
-  const primeDebugClass = debug ? "outline outline-pink-600" : "";
+  const primeDebugClass = debug ? "border-4 border-pink-600" : "";
 
   useEffect(() => {
     const loadPrimeInfo = async () => {

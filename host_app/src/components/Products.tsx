@@ -10,7 +10,7 @@ const LazyHero = lazy(() => import("prime/Products"));
 export const Products = () => {
   const debug = useDebugStore((state) => state.debug);
   const [remoteInfo, setRemoteInfo] = useState<Info | null>(null);
-  const primeDebugClass = debug ? "outline outline-red-600" : "";
+  const primeDebugClass = debug ? "border-4 border-red-600" : "";
 
   useEffect(() => {
     const loadPrimeInfo = async () => {
